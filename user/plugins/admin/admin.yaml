@@ -1,5 +1,5 @@
 enabled: true
-route: '/admin'
+route: '/panel'
 theme: grav
 logo_text: ''
 body_classes: ''
