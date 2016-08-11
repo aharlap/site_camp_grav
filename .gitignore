@@ -14,3 +14,7 @@ Icon?
 Thumbs.db
 *.swp
 
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
