@@ -1,0 +1,11 @@
+email: ariel@technoculture.club
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+fullname: 'Ariel Harlap'
+title: 'Capacity Development'
+state: enabled
+hashed_password: $2y$10$mwbNyvNVfNLEbg7lVHb5I.Dtze/QcM3pJZdNiwHR5UnDWWyNSTutq
