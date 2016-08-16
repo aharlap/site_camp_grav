@@ -1,0 +1,224 @@
+title: Workshop
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        workshop:
+          type: tab
+          title: Workshop
+
+          fields:
+
+            header.workshop_type:
+              type: text
+              label: What is the workshop type?
+              validate:
+                required: true
+              help: Must be one of the defined types in the folder workshop_types
+
+            header.location:
+              type: text
+              label: Where will the workshop take place?
+              validate:
+                required: true
+
+            header.date:
+              type: datetime
+              label: PLUGIN_ADMIN.DATE
+              help: PLUGIN_ADMIN.DATE_HELP
+              validate:
+                required: true
+
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+
+          fields:
+
+            publishing:
+              type: section
+              title: PLUGIN_ADMIN.PUBLISHING
+              underline: true
+
+              fields:
+                header.publish_date:
+                  type: datetime
+                  label: PLUGIN_ADMIN.PUBLISHED_DATE
+                  toggleable: true
+                  help: PLUGIN_ADMIN.PUBLISHED_DATE_HELP
+
+                header.unpublish_date:
+                  type: datetime
+                  label: PLUGIN_ADMIN.UNPUBLISHED_DATE
+                  toggleable: true
+                  help: PLUGIN_ADMIN.UNPUBLISHED_DATE_HELP
+
+                header.metadata:
+                  toggleable: true
+                  type: array
+                  label: PLUGIN_ADMIN.METADATA
+                  help: PLUGIN_ADMIN.METADATA_HELP
+                  placeholder_key: PLUGIN_ADMIN.METADATA_KEY
+                  placeholder_value: PLUGIN_ADMIN.METADATA_VALUE
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+
+          fields:
+            settings:
+              type: section
+              title: PLUGIN_ADMIN.SETTINGS
+              underline: true
+
+              fields:
+
+                folder:
+                  type: text
+                  label: PLUGIN_ADMIN.FOLDER_NAME
+                  validate:
+                    type: slug
+
+                route:
+                  type: select
+                  label: PLUGIN_ADMIN.PARENT
+                  classes: fancy
+                  data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
+                  data-default@: '\Grav\Plugin\admin::rawRoute'
+                  options:
+                    '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
+
+                name:
+                  type: select
+                  classes: fancy
+                  label: PLUGIN_ADMIN.PAGE_FILE
+                  help: PLUGIN_ADMIN.PAGE_FILE_HELP
+                  default: default
+                  data-options@: '\Grav\Common\Page\Pages::pageTypes'
+
+                header.body_classes:
+                  type: text
+                  label: PLUGIN_ADMIN.BODY_CLASSES
+
+            overrides:
+              type: section
+              title: PLUGIN_ADMIN.OVERRIDES
+              underline: true
+
+              fields:
+
+                header.dateformat:
+                  toggleable: true
+                  type: select
+                  size: medium
+                  selectize:
+                    create: true
+                  label: PLUGIN_ADMIN.DEFAULT_DATE_FORMAT
+                  help: PLUGIN_ADMIN.DEFAULT_DATE_FORMAT_HELP
+                  placeholder: PLUGIN_ADMIN.DEFAULT_DATE_FORMAT_PLACEHOLDER
+                  data-options@: '\Grav\Common\Utils::dateFormats'
+                  validate:
+                    type: string
+
+                header.menu:
+                  type: text
+                  label: PLUGIN_ADMIN.MENU
+                  toggleable: true
+                  help: PLUGIN_ADMIN.MENU_HELP
+
+                header.slug:
+                  type: text
+                  label: PLUGIN_ADMIN.SLUG
+                  toggleable: true
+                  help: PLUGIN_ADMIN.SLUG_HELP
+                  validate:
+                    message: PLUGIN_ADMIN.SLUG_VALIDATE_MESSAGE
+                    rule: slug
+
+                header.redirect:
+                  type: text
+                  label: PLUGIN_ADMIN.REDIRECT
+                  toggleable: true
+                  help: PLUGIN_ADMIN.REDIRECT_HELP
+
+                header.process:
+                  type: checkboxes
+                  label: PLUGIN_ADMIN.PROCESS
+                  toggleable: true
+                  config-default@: system.pages.process
+                  default:
+                    markdown: true
+                    twig: false
+                  options:
+                    markdown: Markdown
+                    twig: Twig
+                  use: keys
+
+                header.child_type:
+                  type: select
+                  toggleable: true
+                  label: PLUGIN_ADMIN.DEFAULT_CHILD_TYPE
+                  default: default
+                  placeholder: PLUGIN_ADMIN.USE_GLOBAL
+                  data-options@: '\Grav\Common\Page\Pages::types'
+
+                header.routable:
+                  type: toggle
+                  toggleable: true
+                  label: PLUGIN_ADMIN.ROUTABLE
+                  help: PLUGIN_ADMIN.ROUTABLE_HELP
+                  highlight: 1
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  validate:
+                    type: bool
+
+                header.cache_enable:
+                  type: toggle
+                  toggleable: true
+                  label: PLUGIN_ADMIN.CACHING
+                  highlight: 1
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  validate:
+                    type: bool
+
+                header.visible:
+                  type: toggle
+                  toggleable: true
+                  label: PLUGIN_ADMIN.VISIBLE
+                  help: PLUGIN_ADMIN.VISIBLE_HELP
+                  highlight: 1
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  validate:
+                    type: bool
+
+                header.template:
+                  type: text
+                  toggleable: true
+                  label: PLUGIN_ADMIN.DISPLAY_TEMPLATE
+
+                header.append_url_extension:
+                  type: text
+                  label: PLUGIN_ADMIN.APPEND_URL_EXT
+                  toggleable: true
+                  help: PLUGIN_ADMIN.APPEND_URL_EXT_HELP
+
+                header.order_by:
+                  type: hidden
+
+                header.order_manual:
+                  type: hidden
+                  validate:
+                    type: commalist
+
+                blueprint:
+                  type: blueprint

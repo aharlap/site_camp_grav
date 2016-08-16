@@ -1,0 +1,104 @@
+title: Workshop
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        workshop_type:
+          type: tab
+          title: Workshop
+
+          fields:
+
+            header.title:
+              type: text
+              autofocus: true
+              label: PLUGIN_ADMIN.TITLE
+              validate:
+                required: true
+
+            folder:
+              type: text
+              label: PLUGIN_ADMIN.FOLDER_NAME
+              help: Also used as look-up key for this workshop
+              validate:
+                type: slug
+                required: true
+
+            content:
+                type: markdown
+                validate:
+                  type: textarea
+
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+
+              fields:
+                header.taxonomy:
+                  type: taxonomy
+                  label: PLUGIN_ADMIN.TAXONOMY
+                  multiple: true
+                  validate:
+                    type: array
+
+                header.subject:
+                  type: text
+                  label: Workshop subject
+
+            image:
+              type: section
+              title: PLUGIN_ADMIN.PAGE_MEDIA
+              underline: true
+
+              fields:
+                header.image_file:
+                  type: text
+                  toggleable: true
+                  label: Image File
+                  help: image filename that exists in the page folder. If not provided, will use the first image found.
+                  placeholder: For example: myimage.jpg
+
+                uploads:
+                  type: pagemedia
+                  label: PLUGIN_ADMIN.PAGE_MEDIA
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+
+          fields:
+            settings:
+              type: section
+              title: PLUGIN_ADMIN.SETTINGS
+              underline: true
+
+              fields:
+
+                route:
+                  type: select
+                  label: PLUGIN_ADMIN.PARENT
+                  classes: fancy
+                  data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
+                  data-default@: '\Grav\Plugin\admin::rawRoute'
+                  options:
+                    '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
+
+                name:
+                  type: select
+                  classes: fancy
+                  label: PLUGIN_ADMIN.PAGE_FILE
+                  help: PLUGIN_ADMIN.PAGE_FILE_HELP
+                  default: default
+                  data-options@: '\Grav\Common\Page\Pages::pageTypes'
+
+                folder:
+                  type: text
+                  label: PLUGIN_ADMIN.FOLDER_NAME
+                  help: Also used as look-up key for this workshop
+                  validate:
+                    type: slug
