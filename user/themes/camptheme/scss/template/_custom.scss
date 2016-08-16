@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower:400);
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px:400);
+
+// Font Family
+$font-family-default: "Lato", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+$font-family-header: "Oswald", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+$font-family-mono: "Inconsolata", monospace;
+$font-family-serif: "Slabo 27px", "Georgia", "Times", "Times New Roman", serif;
+$font-family-cursive: "Indie Flower", "Georgia", cursive;
+
+$icons:             "FontAwesome";
+
+// ----------
+// Typography
+// ----------
+
+// Body Base
+html, body, button, input, select, textarea, .pure-g, .pure-g [class *= "pure-u"] {
+  font-family: $font-family-default;
+}
+
+// Headings
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-header;
+}
+
+h2 {
+  font-family: $font-family-cursive;
+}
+
+// Inline and Code
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-family-mono;
+}
