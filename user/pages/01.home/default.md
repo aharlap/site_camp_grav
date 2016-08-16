@@ -1,5 +1,6 @@
 ---
 title: Home
+icon: home
 ---
 
 # Grav is Running!
