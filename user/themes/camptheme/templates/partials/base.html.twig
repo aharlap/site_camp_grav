@@ -10,81 +10,61 @@
   <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
   <link rel="canonical" href="{{ page.url(true, true) }}" />
 
-  <!--SEMANTIC UI-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(components/card.min.css+components/button.min.css+components/container.min.css+components/reveal.min.css+components/grid.min.css+components/header.min.css+components/image.min.css+components/item.min.css+components/list.min.css+components/site.min.css+components/statistic.min.css+components/tab.min.css+semantic.min.css+components/divider.min.css+components/form.min.css+components/icon.min.css+components/label.min.css+components/menu.min.css+components/transition.min.css+components/reset.min.css)">  
-  <script src="https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(semantic.min.js+components/site.min.js+components/tab.min.js+components/form.min.js+components/visibility.min.js+components/transition.min.js)"></script>
-
   {% block stylesheets %}
   {% do assets.addCss('theme://css/font-awesome.min.css', 100) %}
-{#
-  {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css', 103) %}
-  {% do assets.addCss('theme://css-compiled/nucleus.css', 102) %}
-  {% do assets.addCss('theme://css-compiled/template.css', 101) %}
-  {% do assets.addCss('theme://css/custom.css', 100) %}
-  {% do assets.addCss('theme://css/slidebars.min.css') %}
-  {% if browser.getBrowser == 'msie' and browser.getVersion == 10 %}
-    {% do assets.addCss('theme://css/nucleus-ie10.css') %}
-  {% endif %}
-  {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-    {% do assets.addCss('theme://css/nucleus-ie9.css') %}
-    {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
-  {% endif %}
-  #}
+  <!--SEMANTIC UI-->
+  {% do assets.addCss('https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(components/card.min.css+components/button.min.css+components/container.min.css+components/reveal.min.css+components/grid.min.css+components/header.min.css+components/image.min.css+components/item.min.css+components/list.min.css+components/site.min.css+components/tab.min.css+semantic.min.css+components/divider.min.css+components/form.min.css+components/label.min.css+components/menu.min.css+components/transition.min.css+components/dropdown.min.css+components/input.min.css+components/search.min.css+components/icon.min.css+components/segment.min.css+components/statistic.min.css') %}
+  {% do assets.addInlineCss('.ui.footer.segment {margin: 5em 0em 0em; padding: 5em 0em;}') %}
+
   {% endblock %}
 
   {{ assets.css() }}
 
   {% block javascripts %}
     {% do assets.addJs('jquery', 101) %}
-  {#
-  {% do assets.addJs('theme://js/modernizr.custom.71422.js', 100) %}
-  {% do assets.addJs('theme://js/antimatter.js') %}
-  {% do assets.addJs('theme://js/slidebars.min.js') %}
-  #}
+    {% do assets.addJs("https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(semantic.min.js+components/site.min.js+components/tab.min.js+components/form.min.js+components/visibility.min.js+components/transition.min.js+components/dropdown.min.js+components/search.min.js+components/state.min.js+components/colorize.min.js)") %}
+    {% do assets.addJs('jquery', 101) %}
   {% endblock %}
 
   {{ assets.js() }}
 
-  <style type="text/css">
-    .ui.footer.segment {
-      margin: 5em 0em 0em;
-      padding: 5em 0em;
-    }
-  </style>
-
-
 {% endblock head %}
 </head>
 <body>
+  {% block sidebar %}
+  {% endblock %}
   {% block header %}
-  <div class="ui fixed menu">
-    <div class="ui container">
-      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
-        <img class="logo" src="{{ url('theme://images/logo.png') }}">
-        {{ config.site.title }}
-      </a>
-      {% block header_extra %}{% endblock %}
-      {% block header_navigation %}
-      {% include 'partials/navigation.html.twig' %}
-      {% endblock %}
-      {% if config.plugins.langswitcher.enabled %}
-      {% include 'partials/langswitcher.html.twig' %}
-      {% endif %}
+
+  <div class="pusher">
+    <div class="ui fixed stackable menu">
+      <div class="ui container">
+        <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
+          <img class="logo" src="{{ url('theme://images/logo.png') }}">
+          {{ config.site.title }}
+        </a>
+        {% block header_extra %}{% endblock %}
+        {% block header_navigation %}
+        {% include 'partials/navigation.html.twig' %}
+        {% endblock %}
+        {% if config.plugins.langswitcher.enabled %}
+        {% include 'partials/langswitcher.html.twig' %}
+        {% endif %}
+      </div>
     </div>
-  </div>
-  {% endblock %}
+    {% endblock %}
 
-  {% block showcase %}{% endblock %}
+    {% block showcase %}{% endblock %}
 
-  {% block body %}
-  <div class="ui container">
-    {% block content %}{% endblock %}
-  </div>
-  {% endblock %}
+    {% block body %}
+    <div class="ui main container">
+      {% block content %}{% endblock %}
+    </div>
+    {% endblock %}
 
-  {% block footer %}
-  {% include 'partials/footer.html.twig' %}
-  {% endblock %}
+    {% block footer %}
+    {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+    </div>
   </div>
 
 {#   {% block bottom %}

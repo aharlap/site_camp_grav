@@ -1,27 +1,76 @@
 {% embed 'partials/base.html.twig' %}
 
 {% set collection = page.collection() %}
+{% set collection_type = page.header.list_of %} {# 'type' or 'event' #}
+
+{% set taxlist = taxonomylist.get() %}
+
+{% block head %}
+
+{{ parent() }}
+
+<script>
+  $(document)
+    .ready(function() {
+
+      // lazy load images
+      $('.image').visibility({
+        type: 'image',
+        transition: 'vertical flip in',
+        duration: 500
+      });
+    })
+  ;
+</script>
+
+<style type="text/css">
+  .main.container {
+    margin-top: 7em;
+  }
+</style>
+
+{% endblock %}
 
 {% block content %}
 
-<h1 class="ui header">{{ page.title }}</h1>
-
 {{ page.content }}
 
-{% if config.plugins.breadcrumbs.enabled %}
-{% include 'partials/breadcrumbs.html.twig' %}
-{% endif %}
+<div class="ui section divider"></div>
+
+{# {% include 'partials/taxonomylist.html.twig' with {'taxonomy':'tag', 'base_url':'\workshop_types'} %} #}
 
 <div class="ui cards">
 {% for child in collection %}
-  {% include 'partials/workshop_%s_item.html.twig'|format(page.header.list_of) with {'blog':page, 'page':child, 'truncate':true} %}
+  {% include 'partials/workshop_%s_item.html.twig'|format(collection_type) with {'list':page, 'page':child, 'truncate':true} %}
 {% endfor %}
 </div>
+
+<div class="ui section divider"></div>
+
+<h3>Show workshops of type &hellip;</h3>
+
+{% if taxlist %}
+<div class="ui horizontal bulleted link list">
+  {% for tax,value in taxlist['tag'] %}
+  {% set active = uri.param('tag') == tax ? 'active' : '' %}
+  <a class="item {{ active }}" href="{{ page.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tax |url_encode}}">
+    {{ tax }}
+  </a>
+  {% endfor %}
+  <a href="{{ page.url }}" class="item">
+    All
+  </a>
+</div>
+{% endif %}
+
 
 {#                 {% if config.plugins.pagination.enabled and collection.params.pagination %}
                     {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
                 {% endif %}
  #}
+
 {% endblock %}
 
 {% endembed %}
+
+
