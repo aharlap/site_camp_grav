@@ -1,0 +1,27 @@
+{% embed 'partials/base.html.twig' %}
+
+{% set collection = page.collection() %}
+
+{% block content %}
+
+<h1 class="ui header">{{ page.title }}</h1>
+
+{{ page.content }}
+
+{% if config.plugins.breadcrumbs.enabled %}
+{% include 'partials/breadcrumbs.html.twig' %}
+{% endif %}
+
+<div class="ui cards">
+{% for child in collection %}
+  {% include 'partials/workshop_%s_item.html.twig'|format(page.header.list_of) with {'blog':page, 'page':child, 'truncate':true} %}
+{% endfor %}
+</div>
+
+{#                 {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+                {% endif %}
+ #}
+{% endblock %}
+
+{% endembed %}
