@@ -15,6 +15,7 @@
   {% do assets.addCss('https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(components/card.min.css+components/button.min.css+components/container.min.css+components/reveal.min.css+components/grid.min.css+components/header.min.css+components/image.min.css+components/item.min.css+components/list.min.css+components/site.min.css+semantic.min.css+components/divider.min.css+components/form.min.css+components/label.min.css+components/menu.min.css+components/transition.min.css+components/dropdown.min.css+components/input.min.css+components/icon.min.css+components/segment.min.css)') %}
 
   {% do assets.addInlineCss('.ui.footer.segment {margin: 5em 0em 0em; padding: 5em 0em;}') %}
+  {% do assets.addInlineCss('.main.container {margin-top: 5em;}') %}
 
   {% endblock %}
 
@@ -24,7 +25,7 @@
     {% do assets.addJs('jquery', 101) %}
     {% do assets.addJs("https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(semantic.min.js+components/site.min.js+components/form.min.js+components/visibility.min.js+components/transition.min.js+components/dropdown.min.js+components/search.min.js+components/state.min.js)") %}
     {% do assets.addJs("https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")%}
-
+    {% do assets.addJs("theme://js/main.js")%}
   {% endblock %}
 
   {{ assets.js() }}
@@ -67,20 +68,6 @@
     {% endblock %}
     </div>
   </div>
-
-{#   {% block bottom %}
-    {{ assets.js('bottom') }}
-    <script>
-    $(function () {
-      $(document).ready(function() {
-        $.slidebars({
-          hideControlClasses: true,
-          scrollLock: true
-        });
-      });
-    });
-    </script>
-  {% endblock %} #}
 
 </body>
 </html>
