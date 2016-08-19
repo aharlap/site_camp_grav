@@ -1,0 +1,88 @@
+title: Location
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        location_type:
+          type: tab
+          title: Location
+
+          fields:
+
+            header.title:
+              type: text
+              autofocus: true
+              label: PLUGIN_ADMIN.TITLE
+              validate:
+                required: true
+
+            header.icon:
+              type: select
+              label: What is the location icon?
+              default: child
+              validate:
+                required: true
+              options:
+                library: book
+                community_centre: child
+                museum: institution
+                coworking_space: building
+
+            header.address:
+              type: text
+              label: What is the location (one-line address)?
+              default : ''
+              validate:
+                required: true
+
+            header.area:
+              type: text
+              label: What is the neighbourhood or area of town ?
+              default: ''
+              validate:
+                required: true
+
+            content:
+                type: markdown
+                validate:
+                  type: textarea
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+
+          fields:
+            settings:
+              type: section
+              title: PLUGIN_ADMIN.SETTINGS
+              underline: true
+
+              fields:
+
+                route:
+                  type: select
+                  label: PLUGIN_ADMIN.PARENT
+                  classes: fancy
+                  data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
+                  data-default@: '\Grav\Plugin\admin::rawRoute'
+                  options:
+                    '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
+
+                name:
+                  type: select
+                  classes: fancy
+                  label: PLUGIN_ADMIN.PAGE_FILE
+                  help: PLUGIN_ADMIN.PAGE_FILE_HELP
+                  default: default
+                  data-options@: '\Grav\Common\Page\Pages::pageTypes'
+
+                folder:
+                  type: text
+                  label: PLUGIN_ADMIN.FOLDER_NAME
+                  help: Also used as look-up key for this workshop
+                  validate:
+                    type: slug
