@@ -10,8 +10,8 @@ taxonomy:
         - '3D modeling'
         - 'creative'
     ages:
-      - all
+        - 'all'
     software:
-        - TinkerCAD
+        - 'TinkerCAD'
 ---
 Collaborative, group workshop in which participants will create accessories for lego pieces.

@@ -7,8 +7,9 @@ taxonomy:
         - workshop
     tag:
         - '3D printing'
-        - 'all ages'
         - 'practical'
         - 'creative'
+    ages:
+        - 'all'
 ---
 Apprenez à créer votre marque-pages imprimés en 3D à partir de votre propre dessin.

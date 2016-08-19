@@ -6,12 +6,12 @@ taxonomy:
     category:
         - workshop
     tag:
-      - '3D printing'
-      - '3D modeling'
-      - 'playful'
+        - '3D printing'
+        - '3D modeling'
+        - 'playful'
     ages:
-      - all
+        - 'all'
     software:
-      - SketchUp
+        - 'SketchUp'
 ---
 Le participant va apprendre les bases de sketchup en créant un toupie en deux morceaux à assembler.

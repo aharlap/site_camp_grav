@@ -6,10 +6,10 @@ taxonomy:
     category:
         - workshop
     tag:
-      - '3D printing'
-      - '3D modeling'
-      - 'creative'
+        - '3D printing'
+        - '3D modeling'
+        - 'creative'
     ages:
-      - 'youth'
+        - 'youth'
 ---
 This workshop is very accessible for youth and an easy introduction to 3D printing. Participants who will create 3D models, block by block, in the style of Minecraft.

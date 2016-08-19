@@ -7,8 +7,9 @@ taxonomy:
         - workshop
     tag:
         - '3D printing'
-        - 'all ages'
         - 'creative'
         - 'practical'
+    ages:
+        - 'all'
 ---
 Apprenez à créer un emporte pièce à biscuit ou un sous verre à partir d’un dessin ou d’une simple photo.

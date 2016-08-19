@@ -10,6 +10,6 @@ taxonomy:
         - 'playful'
         - 'drawing'
     ages:
-      - all
+        - 'all'
 ---
 Apprenez à créer un moustache en 3D pour vos partys déguisés.

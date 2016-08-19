@@ -11,6 +11,6 @@ taxonomy:
         - 'drawing'
         - 'playful'
     ages:
-      - all
+        - 'all'
 ---
 Apprenez à créer un masque en 3D pour vos partys déguisés.

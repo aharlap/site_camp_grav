@@ -4,13 +4,13 @@ image_file: 'toy_accessories.jpeg'
 subject: '3D printing'
 taxonomy:
     category:
-      - workshop
+        - workshop
     tag:
-      - '3D printing'
-      - '3D modeling'
-      - 'playful'
-      - 'creative'
+        - '3D printing'
+        - '3D modeling'
+        - 'playful'
+        - 'creative'
     ages:
-      - all
+        - 'all'
 ---
 Collaborative, group workshop in which participants will create accessories for lego pieces.

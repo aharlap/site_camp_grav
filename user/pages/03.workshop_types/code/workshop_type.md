@@ -7,9 +7,11 @@ taxonomy:
         - workshop
     tag:
         - '3D printing'
-        - 'all ages'
         - 'playful'
         - 'programming'
+    ages: 
+        - 'all'
+    software:
         - 'OpenSCAD'
 ---
 Utiliser l’impression 3D pour faire comprendre les rudiments du code: variables, boucles, modules, fonctions Les participants doivent réaliser (et pourront repartir avec) une impression de l’objet qu’ils auront modélisé.

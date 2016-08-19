@@ -10,12 +10,7 @@ sitemap:
 
 content:
     items: @self.children
-    limit: 10
     pagination: true
-
-feed:
-    description: Camp workshops
-    limit: 10
 
 pagination: true
 ---

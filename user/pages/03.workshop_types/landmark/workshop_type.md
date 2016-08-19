@@ -7,7 +7,10 @@ taxonomy:
         - workshop
     tag:
         - '3D printing'
-        - 'adult'
         - 'creative'
+    software:
+        - 'SketchUp'
+    ages:
+        - 'adult'
 ---
 Recreate a neighbourhood building in 3D. Participants will learn to model in SketchUp and, time-permitting, results will be 3D printed at reduced scale.

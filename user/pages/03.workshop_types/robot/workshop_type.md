@@ -8,11 +8,11 @@ taxonomy:
     tag:
         - '3D printing'
         - '3D modeling'
-        - collaborative
+        - 'collaborative'
         - 'playful'
     ages:
-      - all
+        - 'all'
     software:
-      - TinkerCAD
+        - 'TinkerCAD'
 ---
 Collaborative, group workshop in which participants will create individual parts of a robot and put them all together to create a single robot.

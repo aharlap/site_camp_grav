@@ -8,7 +8,8 @@ taxonomy:
     tag:
         - '3D printing'
         - collaborative
-        - 'all ages'
-        - '3D portraits'
+        - '3D portrait'
+    ages:
+        - 'all'
 ---
 Collaborative, group workshop in which participants will pair up and sculpt one another's faces.
