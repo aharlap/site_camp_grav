@@ -12,8 +12,7 @@ content:
     items: @self.children
     order:
         by: date
-        dir: desc
-    limit: 5
+        dir: asc
     pagination: true
 
 feed:
