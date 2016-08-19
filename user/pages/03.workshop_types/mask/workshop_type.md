@@ -8,8 +8,9 @@ taxonomy:
     tag:
         - '3D printing'
         - '3D modeling'
-        - 'all ages'
+        - 'drawing'
         - 'playful'
-        - 'practical'
+    ages:
+      - all
 ---
 Apprenez à créer un masque en 3D pour vos partys déguisés.

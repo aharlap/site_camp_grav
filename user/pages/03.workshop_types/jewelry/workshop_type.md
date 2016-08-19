@@ -1,6 +1,6 @@
 ---
-title: Création d’accessoire pour Lego
-image_file: 'toy_accessories.jpeg'
+title: Fabrication des bijoux
+image_file: 'rings.jpeg'
 subject: '3D printing'
 taxonomy:
     category:
@@ -8,8 +8,10 @@ taxonomy:
     tag:
         - '3D printing'
         - '3D modeling'
-        - 'all ages'
-        - 'playful'
         - 'creative'
+    ages:
+      - all
+    software:
+        - TinkerCAD
 ---
 Collaborative, group workshop in which participants will create accessories for lego pieces.

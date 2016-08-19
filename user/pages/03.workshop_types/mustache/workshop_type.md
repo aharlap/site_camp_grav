@@ -7,7 +7,9 @@ taxonomy:
         - workshop
     tag:
         - '3D printing'
-        - 'all ages'
         - 'playful'
+        - 'drawing'
+    ages:
+      - all
 ---
 Apprenez à créer un moustache en 3D pour vos partys déguisés.
