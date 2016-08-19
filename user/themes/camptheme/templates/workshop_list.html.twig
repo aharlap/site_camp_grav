@@ -35,7 +35,7 @@
 
 {{ page.content }}
 
-<div class="ui section divider"></div>
+<div class="ui horizontal divider"></div>
 
 {# {% include 'partials/taxonomylist.html.twig' with {'taxonomy':'tag', 'base_url':'\workshop_types'} %} #}
 
@@ -45,9 +45,10 @@
 {% endfor %}
 </div>
 
-<div class="ui section divider"></div>
 
-<h3>Show workshops of type &hellip;</h3>
+<h3 class="ui horizontal divider header">
+  <i class="fa fa-tags"></i> Show workshops of type &hellip;
+</h3>
 
 {% if taxlist %}
 <div class="ui horizontal bulleted link list">
