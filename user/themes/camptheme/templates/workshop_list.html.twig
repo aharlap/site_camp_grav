@@ -36,7 +36,10 @@
 <div class="ui horizontal divider"></div>
 
 <div id="filters" class="ui buttons">
-  <button class="ui basic button active" data-filter="*">All</button>
+  <button class="ui basic button active" data-filter="*">
+    <i class="fa fa-tags"></i>
+    All
+  </button>
   {% for tag in taglist %}
   <button class="ui basic button" data-filter=".tag-{{tag|replace(' ','-')}}">{{ tag }}</button>
   {% endfor %}
