@@ -43,27 +43,29 @@
             <div class="required field">
               <label>Email</label>
               <input type="email" placeholder="learner@example.com">
+            </div>
           </div>
-        </div>
-        <button class="ui submit orange button" type="submit">Sign me up!</button>
+          <button class="ui submit orange button" type="submit">Sign me up!</button>
+        </div> <!-- close form -->
       </div>
 
     </div><!-- close ui stackable divided grid -->
-  </div>
 
     <div class="ui inverted section divider"></div>
-  <div class="ui centered grid">
-    <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
-      <img src="{{ url('theme://images/logo.png') }}" height="100" class="ui centered image">
-    </a>
-  </div>
-  <div class="ui centered grid">
-    <div class="ui horizontal small divided inverted link list">
-      <a class="item" href="#">Site Map</a>
-      <a class="item" href="#">Contact Us</a>
-      <a class="item" href="#">Terms and Conditions</a>
-      <a class="item" href="#">Privacy Policy</a>
-      <a class="item" href="http://getgrav.org">This site <i class="fa fa-code"></i> with Grav</a>
+
+    <div class="ui centered grid">
+      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
+        <img src="{{ url('theme://images/logo.png') }}" height="100" class="ui centered image">
+      </a>
+    </div>
+    <div class="ui centered grid">
+      <div class="ui horizontal small divided inverted link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+        <a class="item" href="http://getgrav.org">This site <i class="fa fa-code"></i> with Grav</a>
+      </div>
     </div>
   </div>
 </div>
