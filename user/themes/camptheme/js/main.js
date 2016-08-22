@@ -1,11 +1,9 @@
 $(document).ready(function(){
+  // mobile menu
   $('.right.menu.open').on("click",function(e){
-        e.preventDefault();
-    $('.ui.vertical.menu').toggle();
+      e.preventDefault();
+      $('.ui.vertical.menu').toggle();
   });
-});
-
-$(window).on('load', function() {
 
   // init Isotope
   var $container = $('.isotope').isotope({

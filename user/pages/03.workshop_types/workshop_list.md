@@ -2,7 +2,7 @@
 title: Workshops Types
 list_of: type
 slug: types
-icon: puzzle-piece
+icon: puzzle
 
 sitemap:
     changefreq: monthly

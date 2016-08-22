@@ -13,11 +13,46 @@
   {% block stylesheets %}
   {% do assets.addCss('theme://css/font-awesome.min.css', 100) %}
   {% do assets.addCss('https://cdn.jsdelivr.net/g/semantic-ui@2.2.2(components/card.min.css+components/button.min.css+components/container.min.css+components/reveal.min.css+components/grid.min.css+components/header.min.css+components/image.min.css+components/item.min.css+components/list.min.css+components/site.min.css+semantic.min.css+components/divider.min.css+components/form.min.css+components/label.min.css+components/menu.min.css+components/transition.min.css+components/dropdown.min.css+components/input.min.css+components/icon.min.css+components/segment.min.css)') %}
+  {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/components/icon.min.css') %}
 
   {% do assets.addInlineCss('.ui.footer.segment {margin: 5em 0em 0em; padding: 5em 0em;}') %}
   {% do assets.addInlineCss('.main.container {margin-top: 5em;}') %}
 
   {% endblock %}
+
+<style type="text/css">
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.padding-reset{
+  padding: 20px;
+  padding-top: 60px;
+}
+
+// Navbar mobile fixes
+.ui.navbar {
+  margin-top: 20px !important;
+}
+
+@media (max-width: 767px) {
+  .ui.navbar{
+    width: 100% !important;
+  }
+  .padding-reset{
+    padding: 20px;
+    padding-top: 40px;
+  }
+}
+
+.ui.vertical.menu{
+  width: 100% !important;
+  display: none;
+  }
+
+</style>
+
 
   {{ assets.css() }}
 
@@ -33,39 +68,29 @@
 {% endblock head %}
 </head>
 <body>
+<div class="ui page grid">
+
   {% block sidebar %}
   {% endblock %}
   {% block header %}
 
+    {% block header_navigation %}
+    {% include 'partials/navigation.html.twig' %}
+    {% endblock %}
+  {% endblock %}
+  <div class="row">
+      <div class="column padding-reset">
+  {% block showcase %}{% endblock %}
 
+  {% block body %}
+    {% block content %}{% endblock %}
+  {% endblock %}
 
-    <div class="ui fixed stackable menu">
-      <div class="ui container">
-        <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
-          <img class="logo" src="{{ url('theme://images/logo.png') }}" width="80px">
-        </a>
-        {% block header_extra %}{% endblock %}
-        {% block header_navigation %}
-        {% include 'partials/navigation.html.twig' %}
-        {% endblock %}
-        {% if config.plugins.langswitcher.enabled %}
-        {% include 'partials/langswitcher.html.twig' %}
-        {% endif %}
-      </div>
+  {% block footer %}
+  {% include 'partials/footer.html.twig' %}
+  {% endblock %}
     </div>
-    {% endblock %}
-
-    {% block showcase %}{% endblock %}
-
-    {% block body %}
-    <div class="ui main container">
-      {% block content %}{% endblock %}
-    </div>
-    {% endblock %}
-
-    {% block footer %}
-    {% include 'partials/footer.html.twig' %}
-    {% endblock %}
-
+  </div>
+</div>
 </body>
 </html>

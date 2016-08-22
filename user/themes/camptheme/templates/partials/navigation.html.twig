@@ -1,36 +1,76 @@
-{% macro loop(page) %}
-  {% for p in page.children.visible %}
-    {% set current_page = (p.active or p.activeChild) ? 'active' : '' %}
-      {% if p.children.visible.count > 0 %}
-      <a class="item {{ current_page }}" href="{{ p.url }}">
-        {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
-        {{ p.menu }}
-      </a>
-      {{ _self.loop(p) }}
-    {% else %}
-      <a class="item {{ current_page }}" href="{{ p.url }}">
-      {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
-      {{ p.menu }}
-      </a>
-    {% endif %}
+
+{% macro page_list_as_links(pages) %}
+  {% for page in pages.children.visible %}
+    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+    <a class="item {{ current_page }}" href="{{ page.url }}">
+      {% if page.header.icon %}<i class="{{ page.header.icon }} icon"></i>{% endif %}
+      {{ page.menu }}
+    </a>
+  {% endfor %}
+
+  {% for mitem in site.menu %}
+    <a href="{{ mitem.url }}" class="item">
+      {% if mitem.icon %}<i class="{{ mitem.icon }} icon"></i>{% endif %}
+      {{ mitem.text }}
+    </a>
   {% endfor %}
 {% endmacro %}
 
-{% if theme_config.dropdown.enabled %}{{ _self.loop(pages) }}{% else %}
-{% for page in pages.children.visible %}
-  {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-  <a class="item {{ current_page }}" href="{{ page.url }}">
-    {% if page.header.icon %}<i class="fa fa-{{ page.header.icon }}"></i>{% endif %}
-    {{ page.menu }}
-  </a>
-{% endfor %}
+  <div class="computer tablet only row">
+    <div class="ui menu navbar fixed">
+      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
+        <img class="logo" src="{{ url('theme://images/logo.png') }}" width="80px">
+        <span style="padding-left: 5px">Camp.TCC</span>
+      </a>
+      {{_self.page_list_as_links(pages)}}
+    </div>
+  </div>
+  <div class="mobile only narrow row fixed">
+    <div class="ui navbar menu fixed">
+      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
+        <img class="logo" src="{{ url('theme://images/logo.png') }}" width="80px">
+          <span style="padding-left: 5px">Camp.TCC</span>
+      </a>
+      <div class="right menu open">
+        <a href="" class="menu item">
+          <i class="bars large icon"></i>
+        </a>
+      </div>
+    </div>
+    <div class="ui vertical menu fixed navbar">
+      {{_self.page_list_as_links(pages)}}
+    </div>
+  </div>
+
+{# {% block header_extra %}{% endblock %} <!--wtf, does nothing-->
+ #}
+
+{% if config.plugins.langswitcher.enabled %}
+{% include 'partials/langswitcher.html.twig' %}
 {% endif %}
-{% for mitem in site.menu %}
-  <a href="{{ mitem.url }}" class="item">
-    {% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
-    {{ mitem.text }}
-  </a>
-{% endfor %}
-{% if config.plugins.login.enabled and grav.user.username %}
-  <a class="item"><i class="fa fa-icon"></i> {% include 'partials/login-status.html.twig' %}</a>
-{% endif %}
+
+
+{# <!--
+
+        <div class="computer tablet only row">
+            <div class="ui inverted menu navbar">
+                <a href="" class="brand item">Project Name</a>
+                <a href="" class="active item">Link</a>
+                <a href="" class="item">Link</a>
+            </div>
+        </div>
+        <div class="mobile only narrow row">
+            <div class="ui inverted navbar menu">
+                <a href="" class="brand item">Project Name</a>
+                <div class="right menu open">
+                    <a href="" class="menu item">
+                        <i class="reorder icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ui vertical navbar menu">
+                <a href="" class="active item">Link</a>
+                <a href="" class="item">Link</a>
+            </div>
+        </div>
+--> #}
