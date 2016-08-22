@@ -1,76 +1,46 @@
 
 {% macro page_list_as_links(pages) %}
   {% for page in pages.children.visible %}
-    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-    <a class="item {{ current_page }}" href="{{ page.url }}">
-      {% if page.header.icon %}<i class="{{ page.header.icon }} icon"></i>{% endif %}
-      {{ page.menu }}
-    </a>
+    {% set current_page = (page.active or page.activeChild) ? 'uk-active' : '' %}
+      <li><a class="{{ current_page }}" href="{{ page.url }}">
+        {% if page.header.icon %}<i class="uk-icon-{{ page.header.icon }}"></i>{% endif %}
+        {{ page.menu }}
+      </a></li>
   {% endfor %}
 
   {% for mitem in site.menu %}
     <a href="{{ mitem.url }}" class="item">
-      {% if mitem.icon %}<i class="{{ mitem.icon }} icon"></i>{% endif %}
+      {% if mitem.icon %}<i class="uk-icon-{{ mitem.icon }}"></i>{% endif %}
       {{ mitem.text }}
     </a>
   {% endfor %}
 {% endmacro %}
 
-  <div class="computer tablet only row">
-    <div class="ui menu navbar fixed">
-      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
-        <img class="logo" src="{{ url('theme://images/logo.png') }}" width="80px">
-        <span style="padding-left: 5px">Camp.TCC</span>
-      </a>
+  <!-- Navigation -->
+  <nav class="uk-navbar" data-uk-sticky="{clsactive: 'uk-navbar-attached', top: -40, animation: 'uk-animation-slide-top'}">
+    <a class="uk-navbar-brand uk-hidden-small" href="{{ base_url == '' ? '/' : base_url }}">
+        <img src="{{ url('theme://images/logo.png') }}" width="30px">
+      Camp.TCC
+    </a>
+    <ul class="uk-navbar-nav uk-hidden-small">
       {{_self.page_list_as_links(pages)}}
-    </div>
-  </div>
-  <div class="mobile only narrow row fixed">
-    <div class="ui navbar menu fixed">
-      <a href="{{ base_url == '' ? '/' : base_url }}" class="header item">
-        <img class="logo" src="{{ url('theme://images/logo.png') }}" width="80px">
-          <span style="padding-left: 5px">Camp.TCC</span>
-      </a>
-      <div class="right menu open">
-        <a href="" class="menu item">
-          <i class="bars large icon"></i>
-        </a>
-      </div>
-    </div>
-    <div class="ui vertical menu fixed navbar">
-      {{_self.page_list_as_links(pages)}}
-    </div>
-  </div>
 
-{# {% block header_extra %}{% endblock %} <!--wtf, does nothing-->
- #}
+    </ul>
+    <a href="#offcanvas" class="uk-navbar-toggle uk-navbar-content uk-navbar-flip uk-visible-small" data-uk-offcanvas></a>
+    <a class="uk-navbar-brand uk-navbar-center uk-visible-small" href="{{ base_url == '' ? '/' : base_url }}">
+        <img src="{{ url('theme://images/logo.png') }}" width="30px">
+    </a>
+  </nav>
+
+  <!-- Offcanvas Navigation -->
+  <div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+      <ul class="uk-nav uk-nav-offcanvas">
+        {{_self.page_list_as_links(pages)}}
+      </ul>
+    </div>
+  </div>
 
 {% if config.plugins.langswitcher.enabled %}
 {% include 'partials/langswitcher.html.twig' %}
 {% endif %}
-
-
-{# <!--
-
-        <div class="computer tablet only row">
-            <div class="ui inverted menu navbar">
-                <a href="" class="brand item">Project Name</a>
-                <a href="" class="active item">Link</a>
-                <a href="" class="item">Link</a>
-            </div>
-        </div>
-        <div class="mobile only narrow row">
-            <div class="ui inverted navbar menu">
-                <a href="" class="brand item">Project Name</a>
-                <div class="right menu open">
-                    <a href="" class="menu item">
-                        <i class="reorder icon"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ui vertical navbar menu">
-                <a href="" class="active item">Link</a>
-                <a href="" class="item">Link</a>
-            </div>
-        </div>
---> #}
