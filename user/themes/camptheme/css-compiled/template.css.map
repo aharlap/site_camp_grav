@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACQ,sEAA8D;AAC9D,gEAAwD;AACxD,oEAA4D;AAC5D,kEAA0D",
+"mappings": "AACQ,sEAA8D;AAC9D,gEAAwD;AACxD,oEAA4D;AAC5D,kEAA0D;AASlE,IAAI;EACF,WAAW,EAPS,4DAA4D;;AAUlF,UAAS;EACP,WAAW,EAVQ,8DAA8D;;AAanF,UAAW;EACT,WAAW,EAXS,kCAAkC;EAYtD,8BAA8B",
 "sources": ["../scss/template/_fonts.scss"],
 "names": [],
 "file": "template.css"

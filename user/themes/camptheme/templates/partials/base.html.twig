@@ -11,16 +11,13 @@
   <link rel="canonical" href="{{ page.url(true, true) }}" />
 
   {% block stylesheets %}
-    {% do assets.addCss('theme://css/uikit.almost-flat.min.css', 100) %}
-    {% do assets.addCSS('theme://css/components/sticky.almost-flat.min.css')%}
+    {% do assets.addCss('theme://css-compiled/template.css', 100) %}
   {% endblock %}
 
   {{ assets.css() }}
 
   {% block javascripts %}
     {% do assets.addJs('jquery', 101) %}
-    {% do assets.addJs("theme://js/uikit.min.js") %}
-    {% do assets.addJs('theme://js/components/sticky.min.js')%}
   {% endblock %}
 
   {{ assets.js() }}

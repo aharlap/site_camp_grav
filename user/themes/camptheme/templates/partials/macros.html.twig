@@ -1,0 +1,11 @@
+<!-- Macros -->
+{% macro page_list_as_links(pages) %}
+  {% for page in pages.children.visible %}
+    {% set current_page = (page.active or page.activeChild) ? 'uk-active' : '' %}
+<li><a class="{{ current_page }}" href="{{ page.url }}">{% if page.header.icon %}<i class="uk-icon-{{ page.header.icon }}"></i>{% endif %}{{ page.menu }}</a></li>
+  {% endfor %}
+
+  {% for mitem in site.menu %}
+<a href="{{ mitem.url }}" class="item">{% if mitem.icon %}<i class="uk-icon-{{ mitem.icon }}"></i>{% endif %}{{ mitem.text }}</a>
+  {% endfor %}
+{% endmacro %}

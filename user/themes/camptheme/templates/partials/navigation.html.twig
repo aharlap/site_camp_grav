@@ -1,25 +1,18 @@
-
 {% macro page_list_as_links(pages) %}
   {% for page in pages.children.visible %}
     {% set current_page = (page.active or page.activeChild) ? 'uk-active' : '' %}
-      <li><a class="{{ current_page }}" href="{{ page.url }}">
-        {% if page.header.icon %}<i class="uk-icon-{{ page.header.icon }}"></i>{% endif %}
-        {{ page.menu }}
-      </a></li>
+<li><a class="{{ current_page }}" href="{{ page.url }}">{% if page.header.icon %}<i class="uk-icon-{{ page.header.icon }}"></i>{% endif %} {{ page.menu }}</a></li>
   {% endfor %}
 
   {% for mitem in site.menu %}
-    <a href="{{ mitem.url }}" class="item">
-      {% if mitem.icon %}<i class="uk-icon-{{ mitem.icon }}"></i>{% endif %}
-      {{ mitem.text }}
-    </a>
+<a href="{{ mitem.url }}" class="item">{% if mitem.icon %}<i class="uk-icon-{{ mitem.icon }}"></i>{% endif %} {{ mitem.text }}</a>
   {% endfor %}
 {% endmacro %}
 
   <!-- Navigation -->
-  <nav class="uk-navbar" data-uk-sticky="{clsactive: 'uk-navbar-attached', top: -40, animation: 'uk-animation-slide-top'}">
+  <nav class="uk-navbar" data-uk-sticky="{clsactive: 'uk-navbar-attached', top: -40, animation: 'uk-animation-slide-top'}" style="z-index: 1">
     <a class="uk-navbar-brand uk-hidden-small" href="{{ base_url == '' ? '/' : base_url }}">
-        <img src="{{ url('theme://images/logo.png') }}" width="30px">
+        <img class="uk-responsive-height" src="{{ url('theme://images/logo.png') }}">
       Camp.TCC
     </a>
     <ul class="uk-navbar-nav uk-hidden-small">
@@ -28,7 +21,7 @@
     </ul>
     <a href="#offcanvas" class="uk-navbar-toggle uk-navbar-content uk-navbar-flip uk-visible-small" data-uk-offcanvas></a>
     <a class="uk-navbar-brand uk-navbar-center uk-visible-small" href="{{ base_url == '' ? '/' : base_url }}">
-        <img src="{{ url('theme://images/logo.png') }}" width="30px">
+        <img class="uk-responsive-height" src="{{ url('theme://images/logo.png') }}">
     </a>
   </nav>
 

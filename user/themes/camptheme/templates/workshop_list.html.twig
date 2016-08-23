@@ -31,37 +31,34 @@
 
 {{ page.content }}
 
-<!-- button filter list -->
 {% if taglist %}
-<div class="ui horizontal divider"></div>
+<div class="uk-grid-divider"></div>
 
-<div id="filters" class="ui buttons">
-  <button class="ui basic button active" data-filter="*">
-    <i class="fa fa-tags"></i>
-    All
-  </button>
+<!-- button filter list -->
+<ul id="filter" class="uk-subnav uk-subnav-pill">
+  <li class="uk-active" data-uk-filter=""><a href="#"><i class="uk-icon-tag"></i> All</a></li>
   {% for tag in taglist %}
-  <button class="ui basic button" data-filter=".tag-{{tag|replace(' ','-')}}">{{ tag }}</button>
+  <li data-uk-filter="tag-{{tag|replace(' ','-')}}"><a href="#">{{ tag }}</a></li>
   {% endfor %}
-</div>
+</ul>
 {% endif %}
 <!-- end button filter list -->
 
-<div class="ui horizontal divider"></div>
+<div class="uk-grid-divider"></div>
 
-<!-- cards list (filterable) -->
-<div class="segment">
-  {% if collection_type == 'type' %} 
-    <div class="ui cards isotope">
-  {% else %}
-  <div class="ui items isotope">
-  {% endif %}
-  {% for child in collection %}
-    {% include 'partials/workshop_%s_item.html.twig'|format(collection_type) with {'list':page, 'page':child, 'truncate':true} %}
-  {% endfor %}
-  </div>
+<!-- blocks (filterable) -->
+{% if collection_type == 'type' %} 
+<div class="uk-grid-width-small-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-3" data-uk-grid="{gutter: 20, controls: '#filter'}">
+{% else %}
+<div class="uk-grid-width-small-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-4" data-uk-grid="{gutter: 20, controls: '#filter'}">
+
+{% endif %}
+
+{% for child in collection %}
+  {% include 'partials/workshop_%s_item.html.twig'|format(collection_type) with {'list':page, 'page':child, 'truncate':true} %}
+{% endfor %}
 </div>
-<!-- end cards list (filterable) -->
+<!-- end blocks (filterable) -->
 
 {% endblock %}
 

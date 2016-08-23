@@ -11,5 +11,15 @@ $font-family-mono: "Inconsolata", monospace;
 $font-family-serif: "Slabo 27px", "Georgia", "Times", "Times New Roman", serif;
 $font-family-cursive: "Indie Flower", "Georgia", cursive;
 
-$icons: "FontAwesome";
+body{
+  font-family: $font-family-default;
+}
 
+h1,h3,h5 {
+  font-family: $font-family-header;
+}
+
+h2, h4, h6 {
+  font-family: $font-family-cursive;
+  /*background-color: #FFFF00;*/
+}
